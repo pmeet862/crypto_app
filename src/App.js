@@ -17,7 +17,10 @@ function App() {
   }, []);
 
   const filteredCoins = listOfCoins.filter((coin) => {
-    return coin.name.toLowerCase().includes(searchWord.toLowerCase());
+    return (
+      coin.name.toLowerCase().includes(searchWord.toLowerCase().trim()) ||
+      coin.symbol.toLowerCase().includes(searchWord.toLowerCase().trim())
+    );
   });
 
   return (
